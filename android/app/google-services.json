@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "620488103302",
+    "project_id": "dhiwise-project",
+    "storage_bucket": "dhiwise-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620488103302:android:8b2a63c4939ec45c9b0807",
+        "android_client_info": {
+          "package_name": "com.example.dhiwise_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOKreZ59zM_ggaZdUWMgP8gN3w9vA74Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
