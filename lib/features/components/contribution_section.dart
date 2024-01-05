@@ -1,18 +1,24 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dhiwise_project/core/extensions/context.dart';
+import 'package:dhiwise_project/features/providers/house_data_provider.dart';
+import 'package:dhiwise_project/routes/app_router.dart';
 import 'package:dhiwise_project/theme/app_colors.dart';
 import 'package:dhiwise_project/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ContributionSection extends StatefulWidget {
+class ContributionSection extends ConsumerStatefulWidget {
   const ContributionSection({super.key});
 
   @override
-  State<ContributionSection> createState() => _ContributionSectionState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _ContributionSectionState();
 }
 
-class _ContributionSectionState extends State<ContributionSection> {
+class _ContributionSectionState extends ConsumerState<ContributionSection> {
   @override
   Widget build(BuildContext context) {
+    final data = ref.watch(houseDataNotifierProvider);
     return Container(
       width: context.width,
       decoration: BoxDecoration(
@@ -37,10 +43,15 @@ class _ContributionSectionState extends State<ContributionSection> {
                   style: AppTextTheme.semiBold15
                       .copyWith(color: AppColor.darkBlue, letterSpacing: 0.1),
                 ),
-                Text(
-                  'show history',
-                  style: AppTextTheme.semiBold12
-                      .copyWith(color: AppColor.grey, letterSpacing: 0.1),
+                InkWell(
+                  onTap: () {
+                    context.pushRoute(const ContributionHistoryRoute());
+                  },
+                  child: Text(
+                    'show history',
+                    style: AppTextTheme.semiBold12
+                        .copyWith(color: AppColor.grey, letterSpacing: 0.1),
+                  ),
                 ),
               ],
             ),
@@ -54,7 +65,10 @@ class _ContributionSectionState extends State<ContributionSection> {
                   child: Row(
                     children: [
                       Expanded(
-                        flex: 5,
+                        flex: (data.totalSaving == 0)
+                            ? 3
+                            : ((data.totalSalaryContribution * 100) ~/
+                                data.totalSaving),
                         child: Container(
                           width: 30,
                           decoration: const BoxDecoration(
@@ -63,9 +77,12 @@ class _ContributionSectionState extends State<ContributionSection> {
                         ),
                       ),
                       Expanded(
-                        flex: 2,
+                        flex: (data.totalSaving == 0)
+                            ? 3
+                            : ((data.totolBonusContribution * 100) ~/
+                                data.totalSaving),
                         child: Container(
-                          width: 30,
+                          // width: 30,
                           color: AppColor.yellow,
                           child: Row(children: [
                             Container(
@@ -85,9 +102,12 @@ class _ContributionSectionState extends State<ContributionSection> {
                         ),
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: (data.totalSaving == 0)
+                            ? 3
+                            : ((data.totalOtherContribution * 100) ~/
+                                data.totalSaving),
                         child: Container(
-                          width: 30,
+                          // width: 30,
                           color: AppColor.limeGreen,
                           child: Row(children: [
                             Container(
@@ -133,7 +153,7 @@ class _ContributionSectionState extends State<ContributionSection> {
                     ),
                     Expanded(
                         child: Text(
-                      '\$15000',
+                      '\$${data.totalSalaryContribution}',
                       style: AppTextTheme.medium12.copyWith(
                           color: AppColor.darkBlue,
                           fontWeight: FontWeight.bold),
@@ -160,7 +180,7 @@ class _ContributionSectionState extends State<ContributionSection> {
                             fontWeight: FontWeight.bold)),
                     Expanded(
                         child: Text(
-                      '\$10000',
+                      '\$${data.totolBonusContribution}',
                       textAlign: TextAlign.right,
                       style: AppTextTheme.medium12.copyWith(
                           color: AppColor.darkBlue,
@@ -187,7 +207,7 @@ class _ContributionSectionState extends State<ContributionSection> {
                             fontWeight: FontWeight.bold)),
                     Expanded(
                         child: Text(
-                      '\$5000',
+                      '\$${data.totalOtherContribution}',
                       textAlign: TextAlign.right,
                       style: AppTextTheme.medium12.copyWith(
                           color: AppColor.darkBlue,

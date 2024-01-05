@@ -7,6 +7,9 @@ part 'house_model.g.dart';
 class HouseState with _$HouseState {
   const factory HouseState(
       {@Default(0) int totalSaving,
+      @Default(0) int totalSalaryContribution,
+      @Default(0) int totalOtherContribution,
+      @Default(0) int totolBonusContribution,
       @Default(0) int targetHousePrice,
       @Default(0.0) double monthlyProjection,
       @Default(<MonthlyContributionState>[])
@@ -20,8 +23,9 @@ class HouseState with _$HouseState {
 @freezed
 class MonthlyContributionState with _$MonthlyContributionState {
   const factory MonthlyContributionState({
-    @Default('') String dateTime,
+    DateTime? dateTime,
     @Default(0) int amount,
+    @Default('') String type,
   }) = _MonthlyContributionState;
 
   factory MonthlyContributionState.fromJson(Map<String, dynamic> json) =>

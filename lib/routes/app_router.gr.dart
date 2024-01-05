@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ContributionHistoryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ContributionHistoryPage(),
+      );
+    },
     FinancialRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -46,6 +52,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ContributionHistoryPage]
+class ContributionHistoryRoute extends PageRouteInfo<void> {
+  const ContributionHistoryRoute({List<PageRouteInfo>? children})
+      : super(
+          ContributionHistoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContributionHistoryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

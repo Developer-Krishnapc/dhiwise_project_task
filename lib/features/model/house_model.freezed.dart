@@ -21,6 +21,9 @@ HouseState _$HouseStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HouseState {
   int get totalSaving => throw _privateConstructorUsedError;
+  int get totalSalaryContribution => throw _privateConstructorUsedError;
+  int get totalOtherContribution => throw _privateConstructorUsedError;
+  int get totolBonusContribution => throw _privateConstructorUsedError;
   int get targetHousePrice => throw _privateConstructorUsedError;
   double get monthlyProjection => throw _privateConstructorUsedError;
   List<MonthlyContributionState> get monthlyContribution =>
@@ -41,6 +44,9 @@ abstract class $HouseStateCopyWith<$Res> {
   @useResult
   $Res call(
       {int totalSaving,
+      int totalSalaryContribution,
+      int totalOtherContribution,
+      int totolBonusContribution,
       int targetHousePrice,
       double monthlyProjection,
       List<MonthlyContributionState> monthlyContribution,
@@ -61,6 +67,9 @@ class _$HouseStateCopyWithImpl<$Res, $Val extends HouseState>
   @override
   $Res call({
     Object? totalSaving = null,
+    Object? totalSalaryContribution = null,
+    Object? totalOtherContribution = null,
+    Object? totolBonusContribution = null,
     Object? targetHousePrice = null,
     Object? monthlyProjection = null,
     Object? monthlyContribution = null,
@@ -70,6 +79,18 @@ class _$HouseStateCopyWithImpl<$Res, $Val extends HouseState>
       totalSaving: null == totalSaving
           ? _value.totalSaving
           : totalSaving // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSalaryContribution: null == totalSalaryContribution
+          ? _value.totalSalaryContribution
+          : totalSalaryContribution // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalOtherContribution: null == totalOtherContribution
+          ? _value.totalOtherContribution
+          : totalOtherContribution // ignore: cast_nullable_to_non_nullable
+              as int,
+      totolBonusContribution: null == totolBonusContribution
+          ? _value.totolBonusContribution
+          : totolBonusContribution // ignore: cast_nullable_to_non_nullable
               as int,
       targetHousePrice: null == targetHousePrice
           ? _value.targetHousePrice
@@ -101,6 +122,9 @@ abstract class _$$HouseStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {int totalSaving,
+      int totalSalaryContribution,
+      int totalOtherContribution,
+      int totolBonusContribution,
       int targetHousePrice,
       double monthlyProjection,
       List<MonthlyContributionState> monthlyContribution,
@@ -119,6 +143,9 @@ class __$$HouseStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? totalSaving = null,
+    Object? totalSalaryContribution = null,
+    Object? totalOtherContribution = null,
+    Object? totolBonusContribution = null,
     Object? targetHousePrice = null,
     Object? monthlyProjection = null,
     Object? monthlyContribution = null,
@@ -128,6 +155,18 @@ class __$$HouseStateImplCopyWithImpl<$Res>
       totalSaving: null == totalSaving
           ? _value.totalSaving
           : totalSaving // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSalaryContribution: null == totalSalaryContribution
+          ? _value.totalSalaryContribution
+          : totalSalaryContribution // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalOtherContribution: null == totalOtherContribution
+          ? _value.totalOtherContribution
+          : totalOtherContribution // ignore: cast_nullable_to_non_nullable
+              as int,
+      totolBonusContribution: null == totolBonusContribution
+          ? _value.totolBonusContribution
+          : totolBonusContribution // ignore: cast_nullable_to_non_nullable
               as int,
       targetHousePrice: null == targetHousePrice
           ? _value.targetHousePrice
@@ -154,6 +193,9 @@ class __$$HouseStateImplCopyWithImpl<$Res>
 class _$HouseStateImpl implements _HouseState {
   const _$HouseStateImpl(
       {this.totalSaving = 0,
+      this.totalSalaryContribution = 0,
+      this.totalOtherContribution = 0,
+      this.totolBonusContribution = 0,
       this.targetHousePrice = 0,
       this.monthlyProjection = 0.0,
       final List<MonthlyContributionState> monthlyContribution =
@@ -167,6 +209,15 @@ class _$HouseStateImpl implements _HouseState {
   @override
   @JsonKey()
   final int totalSaving;
+  @override
+  @JsonKey()
+  final int totalSalaryContribution;
+  @override
+  @JsonKey()
+  final int totalOtherContribution;
+  @override
+  @JsonKey()
+  final int totolBonusContribution;
   @override
   @JsonKey()
   final int targetHousePrice;
@@ -189,7 +240,7 @@ class _$HouseStateImpl implements _HouseState {
 
   @override
   String toString() {
-    return 'HouseState(totalSaving: $totalSaving, targetHousePrice: $targetHousePrice, monthlyProjection: $monthlyProjection, monthlyContribution: $monthlyContribution, targetDate: $targetDate)';
+    return 'HouseState(totalSaving: $totalSaving, totalSalaryContribution: $totalSalaryContribution, totalOtherContribution: $totalOtherContribution, totolBonusContribution: $totolBonusContribution, targetHousePrice: $targetHousePrice, monthlyProjection: $monthlyProjection, monthlyContribution: $monthlyContribution, targetDate: $targetDate)';
   }
 
   @override
@@ -199,6 +250,13 @@ class _$HouseStateImpl implements _HouseState {
             other is _$HouseStateImpl &&
             (identical(other.totalSaving, totalSaving) ||
                 other.totalSaving == totalSaving) &&
+            (identical(
+                    other.totalSalaryContribution, totalSalaryContribution) ||
+                other.totalSalaryContribution == totalSalaryContribution) &&
+            (identical(other.totalOtherContribution, totalOtherContribution) ||
+                other.totalOtherContribution == totalOtherContribution) &&
+            (identical(other.totolBonusContribution, totolBonusContribution) ||
+                other.totolBonusContribution == totolBonusContribution) &&
             (identical(other.targetHousePrice, targetHousePrice) ||
                 other.targetHousePrice == targetHousePrice) &&
             (identical(other.monthlyProjection, monthlyProjection) ||
@@ -214,6 +272,9 @@ class _$HouseStateImpl implements _HouseState {
   int get hashCode => Object.hash(
       runtimeType,
       totalSaving,
+      totalSalaryContribution,
+      totalOtherContribution,
+      totolBonusContribution,
       targetHousePrice,
       monthlyProjection,
       const DeepCollectionEquality().hash(_monthlyContribution),
@@ -236,6 +297,9 @@ class _$HouseStateImpl implements _HouseState {
 abstract class _HouseState implements HouseState {
   const factory _HouseState(
       {final int totalSaving,
+      final int totalSalaryContribution,
+      final int totalOtherContribution,
+      final int totolBonusContribution,
       final int targetHousePrice,
       final double monthlyProjection,
       final List<MonthlyContributionState> monthlyContribution,
@@ -246,6 +310,12 @@ abstract class _HouseState implements HouseState {
 
   @override
   int get totalSaving;
+  @override
+  int get totalSalaryContribution;
+  @override
+  int get totalOtherContribution;
+  @override
+  int get totolBonusContribution;
   @override
   int get targetHousePrice;
   @override
@@ -267,8 +337,9 @@ MonthlyContributionState _$MonthlyContributionStateFromJson(
 
 /// @nodoc
 mixin _$MonthlyContributionState {
-  String get dateTime => throw _privateConstructorUsedError;
+  DateTime? get dateTime => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -282,7 +353,7 @@ abstract class $MonthlyContributionStateCopyWith<$Res> {
           $Res Function(MonthlyContributionState) then) =
       _$MonthlyContributionStateCopyWithImpl<$Res, MonthlyContributionState>;
   @useResult
-  $Res call({String dateTime, int amount});
+  $Res call({DateTime? dateTime, int amount, String type});
 }
 
 /// @nodoc
@@ -299,18 +370,23 @@ class _$MonthlyContributionStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTime = null,
+    Object? dateTime = freezed,
     Object? amount = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      dateTime: null == dateTime
+      dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -324,7 +400,7 @@ abstract class _$$MonthlyContributionStateImplCopyWith<$Res>
       __$$MonthlyContributionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String dateTime, int amount});
+  $Res call({DateTime? dateTime, int amount, String type});
 }
 
 /// @nodoc
@@ -340,18 +416,23 @@ class __$$MonthlyContributionStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTime = null,
+    Object? dateTime = freezed,
     Object? amount = null,
+    Object? type = null,
   }) {
     return _then(_$MonthlyContributionStateImpl(
-      dateTime: null == dateTime
+      dateTime: freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -359,21 +440,24 @@ class __$$MonthlyContributionStateImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MonthlyContributionStateImpl implements _MonthlyContributionState {
-  const _$MonthlyContributionStateImpl({this.dateTime = '', this.amount = 0});
+  const _$MonthlyContributionStateImpl(
+      {this.dateTime, this.amount = 0, this.type = ''});
 
   factory _$MonthlyContributionStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$MonthlyContributionStateImplFromJson(json);
 
   @override
-  @JsonKey()
-  final String dateTime;
+  final DateTime? dateTime;
   @override
   @JsonKey()
   final int amount;
+  @override
+  @JsonKey()
+  final String type;
 
   @override
   String toString() {
-    return 'MonthlyContributionState(dateTime: $dateTime, amount: $amount)';
+    return 'MonthlyContributionState(dateTime: $dateTime, amount: $amount, type: $type)';
   }
 
   @override
@@ -383,12 +467,13 @@ class _$MonthlyContributionStateImpl implements _MonthlyContributionState {
             other is _$MonthlyContributionStateImpl &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dateTime, amount);
+  int get hashCode => Object.hash(runtimeType, dateTime, amount, type);
 
   @JsonKey(ignore: true)
   @override
@@ -407,16 +492,19 @@ class _$MonthlyContributionStateImpl implements _MonthlyContributionState {
 
 abstract class _MonthlyContributionState implements MonthlyContributionState {
   const factory _MonthlyContributionState(
-      {final String dateTime,
-      final int amount}) = _$MonthlyContributionStateImpl;
+      {final DateTime? dateTime,
+      final int amount,
+      final String type}) = _$MonthlyContributionStateImpl;
 
   factory _MonthlyContributionState.fromJson(Map<String, dynamic> json) =
       _$MonthlyContributionStateImpl.fromJson;
 
   @override
-  String get dateTime;
+  DateTime? get dateTime;
   @override
   int get amount;
+  @override
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$$MonthlyContributionStateImplCopyWith<_$MonthlyContributionStateImpl>
