@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dhiwise_project/core/extensions/context.dart';
+import 'package:dhiwise_project/features/components/custom_contribution_painter.dart';
 import 'package:dhiwise_project/features/providers/house_data_provider.dart';
 import 'package:dhiwise_project/routes/app_router.dart';
 import 'package:dhiwise_project/theme/app_colors.dart';
@@ -56,82 +57,23 @@ class _ContributionSectionState extends ConsumerState<ContributionSection> {
               ],
             ),
             const SizedBox(
-              height: 7,
-            ),
-            SizedBox(
-                height: 12,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: (data.totalSaving == 0)
-                            ? 3
-                            : ((data.totalSalaryContribution * 100) ~/
-                                data.totalSaving),
-                        child: Container(
-                          width: 30,
-                          decoration: const BoxDecoration(
-                            color: AppColor.lightBlue,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: (data.totalSaving == 0)
-                            ? 3
-                            : ((data.totolBonusContribution * 100) ~/
-                                data.totalSaving),
-                        child: Container(
-                          // width: 30,
-                          color: AppColor.yellow,
-                          child: Row(children: [
-                            Container(
-                              width: 5,
-                              decoration: const BoxDecoration(
-                                  color: AppColor.lightBlue,
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(
-                                      10,
-                                    ),
-                                    bottomRight: Radius.circular(
-                                      10,
-                                    ),
-                                  )),
-                            ),
-                          ]),
-                        ),
-                      ),
-                      Expanded(
-                        flex: (data.totalSaving == 0)
-                            ? 3
-                            : ((data.totalOtherContribution * 100) ~/
-                                data.totalSaving),
-                        child: Container(
-                          // width: 30,
-                          color: AppColor.limeGreen,
-                          child: Row(children: [
-                            Container(
-                              width: 5,
-                              decoration: const BoxDecoration(
-                                color: AppColor.yellow,
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(
-                                    10,
-                                  ),
-                                  bottomRight: Radius.circular(
-                                    10,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-            const SizedBox(
               height: 20,
+            ),
+            CustomPaint(
+              painter: CustomContributionPainter(
+                  salaryContribution: (data.totalSaving == 0)
+                      ? 0
+                      : data.totalSalaryContribution / data.totalSaving,
+                  bonusContribution: (data.totalSaving == 0)
+                      ? 0
+                      : data.totolBonusContribution / data.totalSaving,
+                  otherContribution: (data.totalSaving == 0)
+                      ? 0
+                      : data.totalOtherContribution / data.totalSaving),
+              child: const SizedBox(
+                height: 20,
+                width: double.infinity,
+              ),
             ),
             Column(
               children: [
