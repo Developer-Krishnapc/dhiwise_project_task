@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dhiwise_project/core/extensions/context.dart';
 import 'package:dhiwise_project/features/components/contribution_section.dart';
+import 'package:dhiwise_project/features/components/custom_circular_progress_painter.dart';
 import 'package:dhiwise_project/features/components/financial_metric_section.dart';
 import 'package:dhiwise_project/features/providers/house_data_provider.dart';
 import 'package:dhiwise_project/gen/assets.gen.dart';
@@ -44,7 +45,7 @@ class _FinancialPageState extends ConsumerState<FinancialPage>
       await ref.read(houseDataNotifierProvider.notifier).fetchDataFromServer();
       final data = ref.read(houseDataNotifierProvider);
       alpha = Tween<double>(
-              begin: 0.0, end: (data.totalSaving * 100) / data.targetHousePrice)
+              begin: 0.0, end: (data.totalSaving) / data.targetHousePrice)
           .animate(controller);
 
       alpha.addListener(() {
@@ -91,7 +92,7 @@ class _FinancialPageState extends ConsumerState<FinancialPage>
                     height: 15,
                   ),
                   SizedBox(
-                    height: 250,
+                    height: 230,
                     child: PageView.builder(
                       controller: pageViewController,
                       itemCount: 3,
@@ -102,17 +103,17 @@ class _FinancialPageState extends ConsumerState<FinancialPage>
                               child: Consumer(
                                 builder: (context, ref, child) {
                                   final data =
-                                      ref.watch(animationStateProvider) / 100;
-                                  return SizedBox(
+                                      ref.watch(animationStateProvider);
+
+                                  return CustomPaint(
+                                    painter: CustomCircularPainter(
+                                        animationValue: data),
+                                    child: Container(
+                                      color: Colors.transparent,
                                       height: 200,
                                       width: 200,
-                                      child: CircularProgressIndicator(
-                                        strokeCap: StrokeCap.round,
-                                        value: data,
-                                        strokeWidth: 5,
-                                        color: AppColor.white,
-                                        backgroundColor: AppColor.grey,
-                                      ));
+                                    ),
+                                  );
                                 },
                               ),
                             ),
@@ -123,7 +124,7 @@ class _FinancialPageState extends ConsumerState<FinancialPage>
                                   Assets.svg.home
                                       .svg(color: AppColor.white, height: 80),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 10,
                                   ),
                                   Text(
                                     '\$${numberFormat.format(data.totalSaving)}',
